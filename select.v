@@ -101,8 +101,6 @@ module select(
                 if (btnL) begin
                     an <= (an == 4'b0111) ?
                         4'b1110: ((an << 1) | 1'b1);    //next digit
-                    
-                    //seg = 8'b11111110;      //first seg of next digit
                 end
                 else begin
                     seg <= 
@@ -115,8 +113,6 @@ module select(
                 if (btnL) begin 
                     an <= (an == 4'b0111) ?
                         4'b1110: ((an << 1) | 1'b1);    //next digit
-                    
-                    //seg = 8'b11111110;      //first seg of next digit
                 end
                 else begin
                     seg <= 
@@ -128,144 +124,5 @@ module select(
                 seg <= seg;
             end
 
-            //     case (seg)
-            //     //first ship
-            //         8'b11111110: begin
-            //             seg <= 
-            //             (btnR ? seg:
-            //              btnL ? 8'b11111011:
-            //              btnD ? seg:
-            //              btnU ? 8'b11111101: seg); 
-            //         end
-            //     //second ship
-            //         8'b11111101: begin
-            //             seg <= 
-            //             (btnR ? seg:
-            //             btnL ? 8'b11110111:
-            //             btnD ? 8'b11111110:
-            //             btnU ? seg: seg); 
-            //         end
-            //     //third ship
-            //     8'b11111011: begin
-            //         seg <= 
-            //         (btnR ? 8'b11111110:
-            //          btnL ? 8'b11011111:
-            //          btnD ? seg:
-            //          btnU ? 8'b11110111: seg); 
-            //     end
-            //     //forth ship
-            //     8'b11110111: begin
-            //         seg <= 
-            //         (btnR ? 8'b11111101:
-            //          btnL ? 8'b10111111:
-            //          btnD ? 8'b11111011:
-            //          btnU ? 8'b11101111: seg); 
-            //     end
-            //     // //fifth ship
-            //     // 8'b11101111: begin
-            //     //     seg <= 
-            //     //     (btnR ? 8'b11111101:
-            //     //      btnL ? 8'b10111111:
-            //     //      btnD ? 8'b11110111:
-            //     //      btnU ? seg: seg); 
-            //     // end
-
-            //     // //sixth ship
-            //      8'b11011111: begin
-            //         seg <= 
-            //         (btnR ? 8'b11111011:
-            //          btnL ? (an <= 4'b1101):
-            //          btnD ? seg:
-            //          btnU ? 8'b10111111: seg); 
-            //     end
-            //     // //seventh ship
-            //     // 8'b10111111: begin
-            //     //     seg <= 
-            //     //     (btnR ? 8'b11110111:
-            //     //      btnL ? (an <= 4'b1101):
-            //     //      btnD ? 8'b11011111:
-            //     //      btnU ? seg: seg); 
-            //     // end
-
-            //     // default: seg <= seg;
-            // endcase
     end
 endmodule
-
-/*
-    set_selection (
-        input clk,      //800 Hz
-        input confirm,  //btn center
-        input seg,
-        input an,
-        output pships,
-        output chState      //change state 
-    );
-    reg [27: 0] pships = 0;
-    reg [2: 0] conf_count = 0; 
-    
-    always @ (posedge clk) begin
-        if(confirm && conf_count < 4) begin
-            conf_count += 1;    //incr # of selections
-
-            case (an)
-            //first battle ground
-                4'b1110: begin
-                    case(seg)
-                        8'b11111110: pships += 1'b1 << 0;
-                        8'b11111101: pships += 1'b1 << 1;
-                        8'b11111011: pships += 1'b1 << 2;
-                        8'b11110111: pships += 1'b1 << 3;
-                        8'b11101111: pships += 1'b1 << 4;
-                        8'b11011111: pships += 1'b1 << 5;
-                        8'b10111111: pships += 1'b1 << 6;
-                    endcase
-                end
-            //second battle ground
-                4'b1101: begin
-                    case(seg)
-                        8'b11111110: pships += 1'b1 << 7;
-                        8'b11111101: pships += 1'b1 << 8;
-                        8'b11111011: pships += 1'b1 << 9;
-                        8'b11110111: pships += 1'b1 << 10;
-                        8'b11101111: pships += 1'b1 << 11;
-                        8'b11011111: pships += 1'b1 << 12;
-                        8'b10111111: pships += 1'b1 << 13;
-                    endcase
-                end
-            //third battle ground
-                4'b1011: begin
-                    case(seg)
-                        8'b11111110: pships += 1'b1 << 14;
-                        8'b11111101: pships += 1'b1 << 15;
-                        8'b11111011: pships += 1'b1 << 16;
-                        8'b11110111: pships += 1'b1 << 17;
-                        8'b11101111: pships += 1'b1 << 18;
-                        8'b11011111: pships += 1'b1 << 19;
-                        8'b10111111: pships += 1'b1 << 20;
-                    endcase
-                end
-            
-            //fourth battle ground
-                4'b0111: begin
-                    case(seg)
-                        8'b11111110: pships += 1'b1 << 21;
-                        8'b11111101: pships += 1'b1 << 22;
-                        8'b11111011: pships += 1'b1 << 23;
-                        8'b11110111: pships += 1'b1 << 24;
-                        8'b11101111: pships += 1'b1 << 25;
-                        8'b11011111: pships += 1'b1 << 26;
-                        8'b10111111: pships += 1'b1 << 27;
-                    endcase
-                end
-
-            endcase     //end case (an)
-        end     //end if (confirm) 
-        
-    end     //always
-
-    assign
-*/
-
-/*
-*/
