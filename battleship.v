@@ -79,15 +79,6 @@ module battle_ship(
 		.btn_out (db_btnRst)
 	);
 	
-	//clocks
-//  clockdiv myClocks(
-//    .clk (clk),
-//    .clock_25Mhz (clock_25Mhz),
-//    .clock_4Hz (clock_4Hz),
-//    .clock_800Hz (clock_800Hz),
-//    .clock_1Hz (clock_1Hz)
-//  );
-  
   clockdiv myClock(
 		.clk(clk),
 		.clr(clr),
